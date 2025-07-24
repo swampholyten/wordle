@@ -1,3 +1,10 @@
+use wordle::{algorithms::Naive, play};
+
+const GAMES: &str = include_str!("../answers.txt");
+
 fn main() {
-    println!("Hello, world!");
+    for answer in GAMES.split_whitespace() {
+        let guesser = Naive::new();
+        play(answer, guesser);
+    }
 }
